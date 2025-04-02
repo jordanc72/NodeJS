@@ -1,7 +1,8 @@
 class Tarea{
-    constructor(codigo,duracion){
+    constructor(codigo,duracion, complejidad){
         this.codigo = codigo,
         this.duracion = duracion
+        this.complejidad = complejidad;
     }
     getDuracion(){
         return this.duracion
@@ -14,10 +15,11 @@ class Tarea{
     }
 }
 class TareaCompuesta{
-    constructor(codigo,duracion, tareas=[]){
+    constructor(codigo,duracion, tareas=[], complejidad){
         this.codigo = codigo;
         this.duracion = duracion;
         this.tareas = tareas;
+        this.complejidad = complejidad;
     }
     agregar(unaTarea){
         this.tareas.push(unaTarea)
@@ -45,32 +47,15 @@ class Proyecto{
     getDuracion(){
         return this.tareas.reduce((acum,tarea) => acum + tarea.getDuracion(),0)
     }
-    mostrarTarea(){
+    mostrarTareas(){
         this.tareas.forEach((tarea)=> tarea.mostrarTarea())
     }
     cleanTareas(){
-        tareas=[]
+        this.tareas=[]
     }
     
-
 }
 
-//si la tarea < 5m cuesta $100, en caso contrario cuesta $200
+//Este es un Patrón ***Composite*** + Strategy
 
-
-
-/*
-Existen 3 tipos de complejidades de las tareas
--trivial/minima => $100 * duracion
--Media => Si duracion >= 5, entonces $200 * duracion : 150 * duracion 
--Maxima => $300 * duracion + $500(si es simple) : $300 * duracion + $500 * cantidad de duración
-
-tarea -> codigo duracion complejidad
-tarea compleja -> codigo duracion tareas complejidad
-
-
-Este es un Patrón ***Composite*** + Strategy
-
-*/ 
-
-module.exports = {Tarea, TareaCompuesta, Proyecto};
+export {Tarea, TareaCompuesta, Proyecto}

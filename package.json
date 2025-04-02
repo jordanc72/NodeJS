@@ -1,0 +1,21 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanc72/NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanc72/NodeJS/issues"
+  },
+  "homepage": "https://github.com/jordanc72/NodeJS#readme",
+  "description": ""
+}

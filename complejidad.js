@@ -1,29 +1,32 @@
 class absComplejidad{
-    constructor(){
-
-    }
+    costoExtra(tiempo){
+        return 0
 }
-
+    costoExtra(tiempo, valorFijo){
+        const extra = this.costoExtra(tiempo) 
+        const costoBasico = tiempo * valorFijo 
+        return costoBasico * extra
+}
+}
 class complejidadMinima extends absComplejidad{
-    constructor(tiempo){
-        this.tiempo = tiempo
+    costoExtra(tiempo){
+        return 0
     }
 }
 
 class complejidadMedia extends absComplejidad{
-    constructor(tiempo){
-        this.tiempo = tiempo
-    }
-    costoTotal(){
-        calculo = Proyecto.getDuracion()* 1.05
-
-        return calculo
+    costoExtra(tiempo){
+        return 0.05
     }
 }
 
 class complejidadMaxima extends absComplejidad{
+    costoExtra(tiempo, valorFijo){
+        const costoBasico = tiempo * valorFijo 
+        return tiempo <= 10? costoBasico* 0.07 : costoBasico* 0.07 + 1000 * (tiempo - 10)
+    }
     
 }
 
 
-import { Tarea, TareaCompuesta, Proyecto} from proyectoTareas.js
+export { complejidadMinima, complejidadMedia, complejidadMaxima}
