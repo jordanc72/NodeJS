@@ -20,22 +20,24 @@ import { complejidadMinima, complejidadMedia, complejidadMaxima} from './complej
 
 const proyecto = new Proyecto()
 
-const t1221 = new Tarea("1.2.2.1", 3,complejidadMedia)
-const t1222 = new Tarea("1.2.2.2", 6, complejidadMinima)
-const t122 = new TareaCompuesta("1.2.2", 1,[t1221,t1222],complejidadMaxima)
+const t1 = new Tarea("2.2.1", 3,complejidadMinima)
 
-const t121 = new Tarea("1.2.1", 4,complejidadMedia)
-const t12 = new TareaCompuesta("1.2", 4,[t121,t122],complejidadMinima)
+const t221 = new Tarea("2.2.1", 3,complejidadMedia)
+const t222 = new Tarea("2.2.2", 4, complejidadMinima)
+const t22 = new TareaCompuesta("2.2", 8,[t221,t222],complejidadMaxima)
 
-const t132 = new Tarea("1.3.2", 1, complejidadMedia)
-const t131 = new Tarea("1.3.1", 2, complejidadMaxima)
-const t13 = new TareaCompuesta("1.3", 3,[t132,t131],complejidadMedia)
+const t21 = new Tarea("2.1", 6,complejidadMedia)
+const t2 = new TareaCompuesta("2", 5,[t21,t22],complejidadMinima)
 
-proyecto.agregarTarea(t12)
-proyecto.agregarTarea(t13)
+const t32 = new Tarea("3.2", 3, complejidadMedia)
+const t31 = new Tarea("3.1", 6, complejidadMaxima)
+const t3 = new TareaCompuesta("3", 7,[t32,t31],complejidadMedia)
+
+proyecto.agregarTarea(t1)
+proyecto.agregarTarea(t2)
+proyecto.agregarTarea(t3)
 
 proyecto.mostrarTareas()
 
-
-console.log(`duracion total: ${t12.getDuracion()} minutos`)
+console.log(`duracion total: ${proyecto.getDuracion()} minutos`)
 

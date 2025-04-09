@@ -13,6 +13,9 @@ class Tarea{
     mostrarTarea(){
         console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion}`)
     }
+    cambiarComplejidad(unaComplejidad){
+        return this.complejidad = unaComplejidad;
+    }
 }
 class TareaCompuesta{
     constructor(codigo,duracion, tareas=[], complejidad){
@@ -21,7 +24,7 @@ class TareaCompuesta{
         this.tareas = tareas;
         this.complejidad = complejidad;
     }
-    agregar(unaTarea){
+    agregarTarea(unaTarea){
         this.tareas.push(unaTarea)
     }
     getDuracion(){
@@ -34,6 +37,14 @@ class TareaCompuesta{
     mostrarTarea(){
         console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion}`);
         this.tareas.forEach((tarea)=> tarea.mostrarTarea());
+    }
+    recargo(){
+        return this.tareas.length > 3? 0.04 : 0;
+    }
+    getCosto(){
+        const costo = this.tareas.reduce((acum, itera)=> acum + itera.getCosto(), 0)
+        const recargo = this.recargo()
+        return costo * (1 + recargo)
     }
 }
 

@@ -28,5 +28,4 @@ class complejidadMaxima extends absComplejidad{
     
 }
 
-
 export { complejidadMinima, complejidadMedia, complejidadMaxima}
